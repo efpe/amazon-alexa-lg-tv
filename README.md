@@ -17,6 +17,7 @@ You need a TV with WebOS 3.
 - Install python (I used 2.7.9 but should work with 3.x)
 - Update `alexa-tv.py` with your tv's MAC address
 - Start the script with `python alexa-tv.py`
+- Enable "Mobile TV On"
 
 When you try to turn off the TV for the first you will need to allow the script to access your TV.
 
