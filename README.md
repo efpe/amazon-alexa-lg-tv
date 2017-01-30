@@ -15,6 +15,7 @@ You need a TV with WebOS 3.
 - Install nodejs (I used version 4)
 - `npm install lgtv -g`
 - Install python (I used 2.7.9 but should work with 3.x)
+- Install wakeonlan py package (`pip install wakeonlan` or from source)
 - Update `alexa-tv.py` with your tv's MAC address
 - Start the script with `python alexa-tv.py`
 - Enable "Mobile TV On"
