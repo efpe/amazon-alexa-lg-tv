@@ -14,7 +14,6 @@ You need a TV with WebOS 2.0+.
 - Clone this repository
 - Install python (I used 2.7.9 but should work with 3.x)
 - Run "pip install -r requirements.txt"
-- Update `alexa-tv.py` with your tv's MAC address
 - Authenticate with "python lgtv.py auth [IP Address]"
 - Start the script with `python alexa-tv.py`
 - Enable "Mobile TV On"
