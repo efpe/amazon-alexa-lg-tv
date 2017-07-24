@@ -22,8 +22,6 @@ from debounce_handler import debounce_handler
 logging.basicConfig(level=logging.DEBUG)
 # Device name
 deviceName = 'tv'
-# Specifiy the MAC address here.
-tvMac='14:C9:13:63:80:57'
 
 class device_handler(debounce_handler):
     """Publishes the on/off state requested,
