@@ -44,5 +44,5 @@ environment=NODE_PATH="/usr/lib/nodejs:/usr/lib/node_modules:/usr/share/javascri
 
 - https://www.npmjs.com/package/lgtv
 - https://github.com/toddmedema/echo
-
+- https://github.com/klattimer/LGWebOSRemote
 
