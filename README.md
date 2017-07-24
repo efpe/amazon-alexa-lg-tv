@@ -1,8 +1,8 @@
 # Amazon Alexa LG TV
 
-Use your Echo or Echo Dot to turn on/off your LG Tv.
+Use your Echo or Echo Dot to turn on/off your LG TV.
 
-You need a TV with WebOS 3.
+You need a TV with WebOS 2.0+.
 
 ## Usage
 
