@@ -47,7 +47,6 @@ stdout_capture_maxbytes=1MB
 
 ## Thanks
 
-- https://www.npmjs.com/package/lgtv
 - https://github.com/toddmedema/echo
 - https://github.com/klattimer/LGWebOSRemote
 
