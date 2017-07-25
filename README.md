@@ -14,6 +14,8 @@ You need a TV with WebOS 2.0+.
 - "Alexa, turn off Netflix"
 - "Alexa, turn on Volume" (default level is set to 4)
 - "Alexa, turn off the Volume" (mutes volume)
+- "Alexa, turn on Playback" (Can also be used as an "OK" button when on a Netflix "Are you still watching?" prompt.
+- "Alexa, turn off Playback"
 
 ## Install
 
