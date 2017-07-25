@@ -8,6 +8,12 @@ You need a TV with WebOS 2.0+.
 
 - "Alexa, turn on TV"
 - "Alexa, turn off the TV"
+- "Alexa, turn on Plex"
+- "Alexa, turn off Plex"
+- "Alexa, turn on Netflix"
+- "Alexa, turn off Netflix"
+- "Alexa, turn on Volume" (default level is set to 4)
+- "Alexa, turn off the Volume" (mutes volume)
 
 ## Install
 
@@ -37,7 +43,6 @@ redirect_stderr=true
 stdout_logfile=/var/log/alexa-tv.log
 stdout_logfile_maxbytes=1MB
 stdout_capture_maxbytes=1MB
-environment=NODE_PATH="/usr/lib/nodejs:/usr/lib/node_modules:/usr/share/javascript"
 ```
 
 ## Thanks
