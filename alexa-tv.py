@@ -47,7 +47,7 @@ class device_handler(debounce_handler):
             os.system("python lgtv.py closeApp netflix")
             print "Closed Netflix"
         elif name == "volume" and state == True:
-            os.system("python lgtv.py setVolume 4")
+            os.system("python lgtv.py setVolume 34")
             print "Volume set to FOUR"
         elif name == "volume" and state == False:
             os.system("python lgtv.py mute muted")
