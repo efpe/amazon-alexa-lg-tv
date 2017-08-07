@@ -12,9 +12,9 @@ You need a TV with WebOS 2.0+.
 - "Alexa, turn off Plex"
 - "Alexa, turn on Netflix"
 - "Alexa, turn off Netflix"
-- "Alexa, turn on Volume" (default level is set to 4)
+- "Alexa, turn on Volume" (default level is set to 34)
 - "Alexa, turn off the Volume" (mutes volume)
-- "Alexa, turn on Playback" (Can also be used as an "OK" button when on a Netflix "Are you still watching?" prompt.
+- "Alexa, turn on Playback" (Can also be used as an "OK" button when on a Netflix "Are you still watching?" prompt.)
 - "Alexa, turn off Playback"
 
 ## Install
@@ -25,6 +25,7 @@ You need a TV with WebOS 2.0+.
 - Authenticate with "python lgtv.py auth [IP Address]"
 - Start the script with `python alexa-tv.py`
 - Enable "Mobile TV On"
+- On the Alexa App, go to "Smart Home" > "Devices" > "Discover" for Alexa to find all commands
 
 When you try to turn on/off the TV for the first you will need to allow the script to access your TV. Alternatively, run "python lgtv.py auth [IP Address]"
 
