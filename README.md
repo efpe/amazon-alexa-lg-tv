@@ -12,10 +12,30 @@ You need a TV with WebOS 2.0+.
 - "Alexa, turn off Plex"
 - "Alexa, turn on Netflix"
 - "Alexa, turn off Netflix"
-- "Alexa, turn on Volume" (default level is set to 34)
-- "Alexa, turn off the Volume" (mutes volume)
+- "Alexa, turn on Volume" (default level is set to 44)
+- "Alexa, turn off the Volume" (sets volume to 0)
 - "Alexa, turn on Playback" (Can also be used as an "OK" button when on a Netflix "Are you still watching?" prompt.)
 - "Alexa, turn off Playback"
+
+(You can also use stop/start in place of the turn on/off invocation)
+
+## Customize Commands
+- If you want to start an app, add the following lines. To find the app id, run "python lgtv.py listApps" and find the app ID. Remember to add a trigger on line 27:
+
+       elif name == "hulu" and state == True:
+            os.system("python lgtv.py startApp [appid]")
+            print "Launched Hulu"
+        elif name == "hulu" and state == False:
+            os.system("python lgtv.py closeApp [appid]")
+            print "Closed Hulu
+            
+- If you want to change inputs, add the following lines. Remember to add an "HDMI X" trigger on line 27 (this is the name Alexa listens for, it can be anything you want).
+
+        elif name == "HDMI X" and state == True:
+            os.system("python lgtv.py setInput HDMI_X")
+            print "Input set to HDMI X"
+            
+See https://github.com/klattimer/LGWebOSRemote for a full list of triggers.
 
 ## Install
 
