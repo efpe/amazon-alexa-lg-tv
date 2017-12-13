@@ -2,7 +2,9 @@
 
 Use your Echo or Echo Dot to turn on/off your LG TV.
 
-You need a TV with WebOS 2.0+.
+## Compatibility    
+
+You need a TV with WebOS 2.0+. Compatible with Linux and MacOS (Python poll is not supported by Windows).
 
 ## Usage
 
@@ -27,7 +29,7 @@ You need a TV with WebOS 2.0+.
             print "Launched Hulu"
         elif name == "hulu" and state == False:
             os.system("python lgtv.py closeApp [appid]")
-            print "Closed Hulu
+            print "Closed Hulu"
             
 - If you want to change inputs, add the following lines. Remember to add an "HDMI X" trigger on line 27 (this is the name Alexa listens for, it can be anything you want).
 
