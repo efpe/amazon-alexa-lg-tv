@@ -1,45 +1,65 @@
-""" alexa_tv.py - https://github.com/efpe/
+""" fauxmo_minimal.py - Fabricate.IO
 
-    The idea and some part of the code came from https://github.com/toddmedema/echo
-    This will register itself to Alexa as 'tv'.
+    This is a demo python file showing what can be done with the debounce_handler.
+    The handler prints True when you say "Alexa, device on" and False when you say
+    "Alexa, device off".
 
-    You can use "Alexa, turn on TV" or "Alexa turn off TV".
+    If you have two or more Echos, it only handles the one that hears you more clearly.
+    You can have an Echo per room and not worry about your handlers triggering for
+    those other rooms.
 
-    For the ON event it sends a magic packet to the specified MAC address
-    For the OFF event it calls the NodeJS script which calls the WebOS API and turns of the TV.
-
+    The IP of the triggering Echo is also passed into the act() function, so you can
+    do different things based on which Echo triggered the handler.
 """
 
 import fauxmo
 import logging
 import time
 import os
-from wakeonlan import wol
-
 from debounce_handler import debounce_handler
 
 logging.basicConfig(level=logging.DEBUG)
-
-# Device name
-deviceName = 'tv'
-# Specifiy the MAC address here.
-tvMac='14:C9:13:31:C1:A2'
 
 class device_handler(debounce_handler):
     """Publishes the on/off state requested,
        and the IP address of the Echo making the request.
     """
-    TRIGGERS = {deviceName: 52000}
+    TRIGGERS = {"tv": 52000, "plex":52001, "volume": 52002, "netflix": 52003, "playback": 52004}
 
-    def act(self, client_address, state):
-        print "State", state, "from client @", client_address
-        if state == True:
-            wol.send_magic_packet(tvMac)
+    def act(self, client_address, state, name):
+        print "State", state, "on ", name, "from client @", client_address
+        if name == "tv" and state == True:
+            os.system("python lgtv.py on")
             print "Magic packet sent to turn on TV!"
-        if state == False:
-            os.system("/usr/bin/node tv_shutdown.js")
+        elif name == "tv" and state == False:
+            os.system("python lgtv.py off")
             print "TV turned off!"
+        elif name == "plex" and state == True:
+            os.system("python lgtv.py startApp cdp-30")
+            print "Launched Plex"
+        elif name == "plex" and state == False:
+            os.system("python lgtv.py closeApp cdp-30")
+            print "Closed Plex"
+        elif name == "netflix" and state == True:
+            os.system("python lgtv.py startApp netflix")
+            print "Launched Netflix"
+        elif name == "netflix" and state == False:
+            os.system("python lgtv.py closeApp netflix")
+            print "Closed Netflix"
+        elif name == "volume" and state == True:
+            os.system("python lgtv.py setVolume 44")
+            print "Volume set to FOURTYFOUR"
+        elif name == "volume" and state == False:
+            os.system("python lgtv.py setVolume 0")
+            print "Volume set to ZERO"
+        elif name == "playback" and state == True:
+            os.system("python lgtv.py inputMediaPlay")
+            print "Playback set to RESUME"
+        elif name == "playback" and state == False:
+            os.system("python lgtv.py inputMediaPause")
+            print "Playback set to PAUSE"
         return True
+
 
 if __name__ == "__main__":
     # Startup the fauxmo server
@@ -49,6 +69,7 @@ if __name__ == "__main__":
     u.init_socket()
     p.add(u)
 
+    # Register the device callback as a fauxmo handler
     d = device_handler()
     for trig, port in d.TRIGGERS.items():
         fauxmo.fauxmo(trig, u, p, None, port, d)
@@ -63,3 +84,4 @@ if __name__ == "__main__":
         except Exception, e:
             logging.critical("Critical exception: " + str(e))
             break
+
