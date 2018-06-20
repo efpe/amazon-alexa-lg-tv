@@ -1,6 +1,6 @@
 # Amazon Alexa LG TV
 
-Use your Echo or Echo Dot to turn on/off your LG TV.
+Use your ~~Echo or~~ Echo Dot to turn on/off your LG TV.
 
 ## Compatibility    
 
